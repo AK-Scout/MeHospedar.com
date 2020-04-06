@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MeHospedar.Models;
+using System.Net;
 
 namespace MeHospedar.Controllers
 {
@@ -91,6 +92,23 @@ namespace MeHospedar.Controllers
             }
         }
 
+        //	GET:	Categorias/Edit/5
+        public ActionResult Edit(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            LoginViewModel usuario = ApplicationDbContext.Edit.Find(id);
+
+            if (categoria == null)
+            {
+                return HttpNotFound();
+            }
+            return View(categoria);
+        }
+
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
@@ -151,7 +169,7 @@ namespace MeHospedar.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,Nome = model.Nome, Sobrenome = model.Sobrenome };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -422,6 +440,7 @@ namespace MeHospedar.Controllers
 
             base.Dispose(disposing);
         }
+
 
         #region Auxiliares
         // Usado para proteção XSRF ao adicionar logons externos
