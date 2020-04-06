@@ -23,18 +23,12 @@ namespace MeHospedar.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext() : base("DefaultConnection")
-
+        public ApplicationDbContext()
+            : base("DefaultConnection", throwIfV1Schema: false)
         {
-            Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
         }
 
         public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
-
-        public static ApplicationDbContext Edit()
         {
             return new ApplicationDbContext();
         }
