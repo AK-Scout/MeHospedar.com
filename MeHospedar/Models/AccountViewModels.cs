@@ -18,7 +18,7 @@ namespace MeHospedar.Models
     public class SendCodeViewModel
     {
         public string SelectedProvider { get; set; }
-        public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
+     //   public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
         public string ReturnUrl { get; set; }
         public bool RememberMe { get; set; }
     }
@@ -68,14 +68,6 @@ namespace MeHospedar.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
-
-        [Required]
-        [Display(Name = "Nome")]
-        public string Nome { get; set; }
-
-        [Required]
-        [Display(Name = "Sobrenome")]
-        public string Sobrenome { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "O/A {0} deve ter no mínimo {2} caracteres.", MinimumLength = 6)]
