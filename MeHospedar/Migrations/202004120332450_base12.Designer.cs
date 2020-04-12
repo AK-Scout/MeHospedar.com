@@ -7,13 +7,13 @@ namespace MeHospedar.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class base2 : IMigrationMetadata
+    public sealed partial class base12 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(base2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(base12));
         
         string IMigrationMetadata.Id
         {
-            get { return "202004081942284_base2"; }
+            get { return "202004120332450_base12"; }
         }
         
         string IMigrationMetadata.Source

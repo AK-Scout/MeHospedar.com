@@ -1,14 +1,14 @@
 ﻿@model MeHospedar.Models.Viajante
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Configurações de Conta</h2>
 
 
-@using (Html.BeginForm("Edit", "Viajantes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Viajantes", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 

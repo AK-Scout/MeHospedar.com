@@ -22,7 +22,6 @@ namespace MeHospedar.Contexts
             //Database.SetInitializer<EFContext>(new DropCreateDatabaseIfModelChanges<EFContext>()); // este comando DROPA o database e recria as tabelas com base no EFCOntext 
             Database.SetInitializer<EFContext>(new MigrateDatabaseToLatestVersion<EFContext, Configuration>());
         }
-        public DbSet<Imagem> Imagens { get; set; }
         public DbSet<Viajante>Viajantes{ get; set; }
         
 

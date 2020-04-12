@@ -189,10 +189,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Contexts\EFContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImagensController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ViajantesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -202,26 +203,17 @@
     <Compile Include="Migrations\202004081849413_Initial_Create.Designer.cs">
       <DependentUpon>202004081849413_Initial_Create.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004081934585_InitialSchema.cs" />
-    <Compile Include="Migrations\202004081934585_InitialSchema.Designer.cs">
-      <DependentUpon>202004081934585_InitialSchema.cs</DependentUpon>
+    <Compile Include="Migrations\202004120332450_base12.cs" />
+    <Compile Include="Migrations\202004120332450_base12.Designer.cs">
+      <DependentUpon>202004120332450_base12.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004081938219_base.cs" />
-    <Compile Include="Migrations\202004081938219_base.Designer.cs">
-      <DependentUpon>202004081938219_base.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004081942284_base2.cs" />
-    <Compile Include="Migrations\202004081942284_base2.Designer.cs">
-      <DependentUpon>202004081942284_base2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004081944107_base3.cs" />
-    <Compile Include="Migrations\202004081944107_base3.Designer.cs">
-      <DependentUpon>202004081944107_base3.cs</DependentUpon>
+    <Compile Include="Migrations\202004120333549_base13.cs" />
+    <Compile Include="Migrations\202004120333549_base13.Designer.cs">
+      <DependentUpon>202004120333549_base13.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Imagem.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Viajante.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -230,6 +222,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\geral.css" />
     <Content Include="Content\img\logo.svg" />
     <Content Include="Content\Index\css\animate.css" />
     <Content Include="Content\Index\css\bootstrap-datepicker.min.css" />
@@ -285,6 +278,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagens\sem-foto.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -372,6 +366,8 @@
     <Content Include="Content\Index\sass\_bootstrap-compass.scss" />
     <Content Include="Content\Index\sass\_bootstrap-mincer.scss" />
     <Content Include="Content\Index\sass\_bootstrap-sprockets.scss" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -383,6 +379,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\Viajantes\Create.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -419,16 +416,18 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Viajantes\Edit.cshtml" />
-    <Content Include="Views\Viajantes\Create2.cshtml" />
     <Content Include="Views\Imagens\Create.cshtml" />
     <Content Include="Views\Imagens\Delete.cshtml" />
     <Content Include="Views\Imagens\Details.cshtml" />
     <Content Include="Views\Imagens\Edit.cshtml" />
     <Content Include="Views\Imagens\Index.cshtml" />
+    <Content Include="Views\Viajantes\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Views\ExibirImagem\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -447,17 +446,11 @@
     <EmbeddedResource Include="Migrations\202004081849413_Initial_Create.resx">
       <DependentUpon>202004081849413_Initial_Create.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004081934585_InitialSchema.resx">
-      <DependentUpon>202004081934585_InitialSchema.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004120332450_base12.resx">
+      <DependentUpon>202004120332450_base12.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004081938219_base.resx">
-      <DependentUpon>202004081938219_base.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004081942284_base2.resx">
-      <DependentUpon>202004081942284_base2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004081944107_base3.resx">
-      <DependentUpon>202004081944107_base3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004120333549_base13.resx">
+      <DependentUpon>202004120333549_base13.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

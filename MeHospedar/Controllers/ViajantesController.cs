@@ -37,9 +37,11 @@ namespace MeHospedar.Controllers
         }
 
         // GET: Viajantes/Create
-        public ActionResult Create()
+        public ActionResult Create(Guid id)
         {
-            return View();
+            Viajante viajante = new Viajante();
+            viajante.ViajanteId = id;
+            return View(viajante);
         }
 
         // POST: Viajantes/Create
@@ -47,20 +49,34 @@ namespace MeHospedar.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Sobrenome,Telefone")] Viajante viajante)
+        public ActionResult Create([Bind(Include = "ViajanteId,Nome,Sobrenome,Telefone,Foto")] Viajante viajante, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
+                    
                 db.Viajantes.Add(viajante);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                   if (file != null)
+             {
+                 String[] strName = file.FileName.Split('.');
+                 String strExt = strName[strName.Count() - 1];
+                 string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("~/Imagens/"), viajante.ViajanteId, strExt); //salvo com o id do usuário Ex. 11.jpg
+                 String pathBase = String.Format("/Imagens/{0}.{1}", viajante.ViajanteId, strExt);
+                 file.SaveAs(pathSave);
+                 viajante.Foto = pathBase;
+                 db.SaveChanges();
+             }
+
+
+                return RedirectToAction("Index", "Home");
             }
 
             return View(viajante);
         }
 
         // GET: Viajantes/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid id)
         {
             if (id == null)
             {
@@ -69,9 +85,14 @@ namespace MeHospedar.Controllers
             Viajante viajante = db.Viajantes.Find(id);
             if (viajante == null)
             {
-                return HttpNotFound();
+                // return HttpNotFound();
+                return RedirectToAction("Create", "Viajantes", new { id = id });
             }
-            return View(viajante);
+            else
+            {
+                return View(viajante);
+            }
+            
         }
 
         // POST: Viajantes/Edit/5
@@ -79,13 +100,30 @@ namespace MeHospedar.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Sobrenome,Telefone")] Viajante viajante)
+        public ActionResult Edit([Bind(Include = "ViajanteId,Nome,Sobrenome,Telefone,Foto")] Viajante viajante, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(viajante).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                if (file != null)
+                {
+                    if (viajante.Foto != null)
+                    {
+                        if (System.IO.File.Exists(Server.MapPath("~/" + viajante.Foto)))
+                        {
+                            System.IO.File.Delete(Server.MapPath("~/" + viajante.Foto));
+                        }
+                    }
+                    String[] strName = file.FileName.Split('.');
+                    String strExt = strName[strName.Count() - 1];
+                    string pathSave = String.Format("{0}{1}.{2}", Server.MapPath("~/Imagens/"), viajante.ViajanteId, strExt);
+                    String pathBase = String.Format("/Imagens/{0}.{1}", viajante.ViajanteId, strExt);
+                    file.SaveAs(pathSave);
+                    viajante.Foto = pathBase;
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index", "Home");
             }
             return View(viajante);
         }
