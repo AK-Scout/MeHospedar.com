@@ -60,6 +60,7 @@ namespace MeHospedar.Models
 
         [Display(Name = "Lembrar-me neste computador?")]
         public bool RememberMe { get; set; }
+
     }
 
     public class RegisterViewModel

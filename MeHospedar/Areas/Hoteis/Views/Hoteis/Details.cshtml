@@ -1,0 +1,75 @@
+﻿@model MeHospedar.Areas.Hoteis.Models.Hotel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hotel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.Rua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.Rua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estrutura.EstruturaId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estrutura.EstruturaId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Idioma.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Idioma.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeContato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeContato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estrelas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estrelas)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HotelId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -191,11 +191,16 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Hoteis\Controllers\CidadesController.cs" />
+    <Compile Include="Areas\Hoteis\Controllers\EstadosController.cs" />
+    <Compile Include="Areas\Hoteis\Controllers\HoteisController.cs" />
+    <Compile Include="Areas\Hoteis\HoteisAreaRegistration.cs" />
+    <Compile Include="Areas\Usuarios\UsuariosAreaRegistration.cs" />
     <Compile Include="Contexts\EFContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ViajantesController.cs" />
+    <Compile Include="Areas\Usuarios\Controllers\ViajantesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,11 +216,31 @@
     <Compile Include="Migrations\202004120333549_base13.Designer.cs">
       <DependentUpon>202004120333549_base13.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004121512071_base14.cs" />
+    <Compile Include="Migrations\202004121512071_base14.Designer.cs">
+      <DependentUpon>202004121512071_base14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004121514059_base141.cs" />
+    <Compile Include="Migrations\202004121514059_base141.Designer.cs">
+      <DependentUpon>202004121514059_base141.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004121613112_base15.cs" />
+    <Compile Include="Migrations\202004121613112_base15.Designer.cs">
+      <DependentUpon>202004121613112_base15.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Areas\Hoteis\Models\CafeDaManha.cs" />
+    <Compile Include="Areas\Hoteis\Models\Cidade.cs" />
+    <Compile Include="Areas\Hoteis\Models\Endereco.cs" />
+    <Compile Include="Areas\Hoteis\Models\Estado.cs" />
+    <Compile Include="Areas\Hoteis\Models\Estrutura.cs" />
+    <Compile Include="Areas\Hoteis\Models\Hotel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Areas\Hoteis\Models\Idioma.cs" />
+    <Compile Include="Areas\Hoteis\Models\Internet.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Viajante.cs" />
+    <Compile Include="Areas\Usuarios\Models\Viajante.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -368,6 +393,12 @@
     <Content Include="Content\Index\sass\_bootstrap-sprockets.scss" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Hoteis\Views\web.config" />
+    <Content Include="Areas\Usuarios\Views\web.config" />
+    <Content Include="Areas\Hoteis\Views\Hoteis\Details.cshtml" />
+    <Content Include="Areas\Hoteis\Views\Hoteis\Create.cshtml" />
+    <Content Include="Areas\Hoteis\Views\Estados\Create.cshtml" />
+    <Content Include="Areas\Hoteis\Views\Cidades\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -379,7 +410,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Views\Viajantes\Create.cshtml" />
+    <Content Include="Areas\Usuarios\Views\Viajantes\Create.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -421,12 +452,14 @@
     <Content Include="Views\Imagens\Details.cshtml" />
     <Content Include="Views\Imagens\Edit.cshtml" />
     <Content Include="Views\Imagens\Index.cshtml" />
-    <Content Include="Views\Viajantes\Edit.cshtml" />
+    <Content Include="Areas\Usuarios\Views\Viajantes\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Hoteis\Views\Shared\" />
+    <Folder Include="Areas\Usuarios\Views\Shared\" />
     <Folder Include="Views\ExibirImagem\" />
   </ItemGroup>
   <ItemGroup>
@@ -451,6 +484,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004120333549_base13.resx">
       <DependentUpon>202004120333549_base13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004121512071_base14.resx">
+      <DependentUpon>202004121512071_base14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004121514059_base141.resx">
+      <DependentUpon>202004121514059_base141.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004121613112_base15.resx">
+      <DependentUpon>202004121613112_base15.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

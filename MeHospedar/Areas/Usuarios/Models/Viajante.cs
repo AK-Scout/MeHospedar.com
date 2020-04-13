@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace MeHospedar.Models
+namespace MeHospedar.Areas.Usuarios.Models
 {
     public class Viajante
     {
@@ -14,11 +14,6 @@ namespace MeHospedar.Models
         public string Sobrenome { get; set; }
         public string Telefone { get; set; }
         public string Foto { get; set; }
-
-        //public Viajante()
-        //{
-        //    ViajanteId = Guid.NewGuid();
-        //}
 
     }
         

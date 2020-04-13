@@ -10,7 +10,7 @@
         <ul class="sf-menu" id="fh5co-primary-menu">
             <li>
                 
-                @Html.ActionLink("Olá " + User.Identity.GetUserName() + "!", "Edit", "Viajantes", new { id = UsuarioId }, htmlAttributes: new { title = "Viajantes" })
+                @Html.ActionLink("Olá " + User.Identity.GetUserName() + "!", "Edit", "Viajantes", new {Area ="Usuarios", id = UsuarioId }, htmlAttributes: new { title = "Viajantes" })
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a></li>
         </ul>

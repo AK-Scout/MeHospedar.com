@@ -6,10 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MeHospedar.Areas.Usuarios.Models;
 using MeHospedar.Contexts;
 using MeHospedar.Models;
 
-namespace MeHospedar.Controllers
+namespace MeHospedar.Areas.Usuarios.Controllers
 {
     public class ViajantesController : Controller
     {
@@ -86,7 +87,7 @@ namespace MeHospedar.Controllers
             if (viajante == null)
             {
                 // return HttpNotFound();
-                return RedirectToAction("Create", "Viajantes", new { id = id });
+                return RedirectToAction("Create", "Viajantes", new {Area = "Usuarios", id = id });
             }
             else
             {

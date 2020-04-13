@@ -6,6 +6,8 @@ using MeHospedar.Models;
 using System.Linq;
 using System.Web;
 using MeHospedar.Migrations;
+using MeHospedar.Areas.Usuarios.Models;
+using MeHospedar.Areas.Hoteis.Models;
 
 namespace MeHospedar.Contexts
 {
@@ -23,7 +25,13 @@ namespace MeHospedar.Contexts
             Database.SetInitializer<EFContext>(new MigrateDatabaseToLatestVersion<EFContext, Configuration>());
         }
         public DbSet<Viajante>Viajantes{ get; set; }
-        
-
+        public DbSet<Hotel> Hoteis { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<Cidade> Cidades { get; set; }
+        public DbSet<Estado> Estados { get; set; }
+        public DbSet<Estrutura> Estruturas { get; set; }
+        public DbSet<Idioma> Idiomas { get; set; }
+        public DbSet<CafeDaManha> CafesDaManha { get; set; }
+        public DbSet<Internet> Internetes { get; set; }
     }
 }
