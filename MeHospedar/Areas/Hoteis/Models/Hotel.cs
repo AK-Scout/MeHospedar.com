@@ -12,6 +12,7 @@ namespace MeHospedar.Areas.Hoteis.Models
         public string NomeContato { get; set; }
         public string Telefone { get; set; }
         public int Estrelas { get; set; }
+        public int numero { get; set; }  // Marchi
         public Guid EnderecoId { get; set; }
         public Guid EstruturaId { get; set; }
         public Guid IdiomaId {get;set;}

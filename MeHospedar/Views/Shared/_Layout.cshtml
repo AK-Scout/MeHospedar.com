@@ -1,99 +1,4 @@
-﻿@*<!DOCTYPE html>
-    <html>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-
-    </head>
-    <body>
-
-            <div class="navbar navbar-light" style="background-color: #e3f2fd;">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        @Html.ActionLink("MeHospedar.com", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("Início", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-                        </ul>
-                        @*  @Html.Partial("_LoginPartial")  *@
-@*</div>
-                </div>
-            </div>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
-            </footer>
-        </div>
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
-    </html>*@
-
-
-@*
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <meta charset="utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
-            @Styles.Render("~/Content/css")
-            @Scripts.Render("~/bundles/modernizr")
-
-        </head>
-        <body>
-
-            <div class="navbar navbar-light" style="background-color: #e3f2fd;">
-                <div class="container">
-                    <div class="navbar-header">
-                        @Html.ActionLink("MeHospedar.com", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                    </div>
-                    <div class="navbar-collapse collapse">
-
-                        <li>@Html.ActionLink("Início", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-
-                           @Html.Partial("_LoginPartial")
-                </div>
-            </div>
-        </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-    </body>
-    </html>
-
-*@
-
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -166,7 +71,8 @@
                     <div class="nav-header">
                         <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
                         <h1 id="fh5co-logo">
-                            <a><i class="icon-airplane"></i>@Html.ActionLink("MeHospedar.com", "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</a>
+                            @*<a><i class="icon-airplane"></i>@Html.ActionLink("MeHospedar.com", "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</a>*@
+                            <a href="../../../Home/Index">MeHospedar.com<i class="icon-airplane"></i></a>
                         </h1>
 
                         @Html.Partial("_LoginPartial")
